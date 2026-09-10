@@ -26,4 +26,4 @@ The date utility suite covers leap years, Monday week boundaries, quarter bounda
 
 The production app registers `public/service-worker.js`, caches the app shell, and serves `public/offline.html` when navigation cannot reach the network. Chromium browsers expose the native install prompt through the Install tab; other browsers show their manual install guidance.
 
-The Widgets tab contains configurable in-app layout previews. Native Android launcher widgets require a separate Capacitor or TWA wrapper and are outside this web app's scope.
+The Widgets tab contains configurable in-app layout previews. Installing the PWA adds an app shortcut, not a native Android launcher widget. Real launcher widgets require a separate Capacitor or TWA Android wrapper with a native `AppWidgetProvider`.

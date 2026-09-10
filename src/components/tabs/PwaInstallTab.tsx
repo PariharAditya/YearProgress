@@ -31,10 +31,11 @@ export function PwaInstallTab({
           </button>
         ) : (
           <div className="manual-install">
-            <strong>Install from your browser menu</strong>
+            <strong>Install the app shortcut from your browser menu</strong>
             <span>
-              Open the browser menu and choose “Install app” or “Add to Home
-              screen”.
+              Open Chrome's menu and choose “Install app” or “Add to Home
+              screen”. This adds Year Progress to your app drawer or home
+              screen; it does not add a native resizable widget.
             </span>
           </div>
         )}

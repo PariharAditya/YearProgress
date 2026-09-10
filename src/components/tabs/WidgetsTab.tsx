@@ -11,11 +11,11 @@ export function WidgetsTab({ metrics, accent }: WidgetsTabProps) {
   return (
     <div className="tab-content">
       <div className="section-intro">
-        <p className="kicker">In-app previews</p>
+        <p className="kicker">Widget previews</p>
         <h2>Choose the glance you want.</h2>
         <p className="muted">
-          These layouts are configurable previews for the app, not native
-          launcher widgets.
+          These are in-app previews. A browser-installed PWA creates an app
+          shortcut, not a resizable Android launcher widget.
         </p>
       </div>
       <div className="phone-mockup">
@@ -55,8 +55,9 @@ export function WidgetsTab({ metrics, accent }: WidgetsTabProps) {
       <div className="widget-guide">
         <Smartphone size={17} color={accent.accent} />
         <span>
-          Install the PWA to keep these layouts close. Native launcher widgets
-          require a separate Android wrapper.
+          To use a real home-screen widget, this project needs a Capacitor or
+          TWA Android wrapper with a native AppWidgetProvider. That is separate
+          from the current web PWA.
         </span>
       </div>
     </div>
