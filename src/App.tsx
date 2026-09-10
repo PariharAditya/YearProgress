@@ -40,6 +40,7 @@ function App() {
   );
   const [activeTab, setActiveTab] = useState<TabId>("overview");
   const [ambient, setAmbient] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [installPrompt, setInstallPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
@@ -123,12 +124,18 @@ function App() {
         metrics={metrics}
         accent={accent}
         onAmbient={() => setAmbient(true)}
+        onSettings={() => setSettingsOpen(true)}
       />
       <div className="top-controls">
         <span className="live-indicator">
           <i /> Live local time
         </span>
-        <SettingsDrawer settings={settings} onChange={setSettings} />
+        <SettingsDrawer
+          settings={settings}
+          onChange={setSettings}
+          open={settingsOpen}
+          onOpenChange={setSettingsOpen}
+        />
       </div>
       <NavTabs activeTab={activeTab} onChange={setActiveTab} />
       <main>{renderTab()}</main>

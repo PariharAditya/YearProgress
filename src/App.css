@@ -5,6 +5,7 @@
   width: min(1120px, 100%);
   margin: 0 auto;
   padding: 34px 42px 72px;
+  position: relative;
 }
 .app-header,
 .top-controls,
@@ -139,8 +140,15 @@ main {
   gap: 24px;
   align-items: end;
   padding: 32px;
-  border-radius: 3px;
-  background: #e8ded0;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.66),
+    rgba(232, 222, 208, 0.58)
+  );
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
 }
 .hero-panel h2 {
   max-width: 620px;
@@ -169,8 +177,19 @@ main {
   gap: 10px;
   min-height: 142px;
   padding: 20px;
-  border: 1px solid #d9d0c3;
-  background: rgba(255, 255, 255, 0.26);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 16px;
+  background: var(--glass);
+  box-shadow: 0 10px 28px rgba(86, 65, 43, 0.06);
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
 }
 .stat-card::before {
   position: absolute;
@@ -188,8 +207,11 @@ main {
   color: #887e72;
 }
 .panel {
-  border: 1px solid #d9d0c3;
-  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 18px;
+  background: var(--glass);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
 }
 .progress-panel,
 .matrix-panel {
@@ -222,13 +244,16 @@ main {
   height: 10px;
   overflow: hidden;
   border-radius: 99px;
-  background: #ded5c9;
+  background: rgba(116, 96, 74, 0.14);
+  box-shadow: inset 0 1px 2px rgba(82, 60, 39, 0.08);
 }
 .progress-fill {
   display: block;
   height: 100%;
   border-radius: inherit;
   transition: width 0.5s ease;
+  background-image: linear-gradient(90deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 46%, transparent);
 }
 .section-intro {
   margin-bottom: 26px;
@@ -282,15 +307,52 @@ main {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 12px;
+  perspective: 900px;
 }
 .widget-preview {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
   min-height: 230px;
   padding: 22px;
-  border: 1px solid #d9d0c3;
-  background: #e8ded0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.24)
+  );
+  box-shadow:
+    0 18px 35px rgba(70, 53, 36, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(18px);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.widget-preview::before {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -80px;
+  right: -45px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 26%, transparent);
+  filter: blur(8px);
+  content: "";
+  pointer-events: none;
+}
+.widget-preview:hover {
+  transform: translateY(-5px) rotateX(1deg);
+  box-shadow:
+    0 24px 45px rgba(70, 53, 36, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+.widget-preview > * {
+  position: relative;
+  z-index: 1;
 }
 .widget-preview strong {
   font:
@@ -305,7 +367,18 @@ main {
   margin-top: auto;
 }
 .widget-tall {
-  background: #d9e5d8;
+  background: linear-gradient(
+    145deg,
+    rgba(213, 235, 226, 0.75),
+    rgba(185, 218, 204, 0.36)
+  );
+}
+.widget-square {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 226, 212, 0.78),
+    rgba(255, 255, 255, 0.3)
+  );
 }
 .milestone-form {
   display: grid;
@@ -330,8 +403,10 @@ main {
   align-items: center;
   gap: 14px;
   padding: 16px;
-  border: 1px solid #d9d0c3;
-  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 14px;
+  background: var(--glass);
+  box-shadow: 0 8px 20px rgba(86, 65, 43, 0.05);
 }
 .milestone > div {
   display: grid;
@@ -369,7 +444,15 @@ main {
 .install-panel {
   max-width: 700px;
   padding: 48px 42px;
-  background: #d9e5d8;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(213, 235, 226, 0.76),
+    rgba(255, 255, 255, 0.3)
+  );
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
 }
 .install-panel h2 {
   margin: 10px 0 14px;
@@ -401,8 +484,10 @@ main {
   width: min(390px, 100%);
   padding: 30px;
   overflow-y: auto;
-  background: #f5f0e8;
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(245, 240, 232, 0.84);
   box-shadow: -12px 0 30px rgba(39, 37, 34, 0.12);
+  backdrop-filter: blur(24px);
 }
 .drawer-heading h2 {
   margin-top: 8px;
@@ -439,6 +524,7 @@ main {
   background: rgba(255, 255, 255, 0.4);
   color: #272522;
   font-weight: 700;
+  box-shadow: 0 8px 18px rgba(86, 65, 43, 0.06);
 }
 .toggle-row {
   display: flex;
@@ -505,6 +591,351 @@ main {
   gap: 14px;
   background: #000;
   color: #fff;
+}
+.ambient-content {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  width: min(620px, calc(100% - 32px));
+  text-align: center;
+}
+.ambient-time {
+  color: #fff;
+  font:
+    800 clamp(3.4rem, 13vw, 8rem)/0.9 "DM Mono",
+    monospace;
+  letter-spacing: -0.08em;
+}
+.ambient-progress {
+  width: min(100%, 520px);
+  padding-top: 16px;
+}
+.ambient-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #737b88;
+  font:
+    500 0.68rem "DM Mono",
+    monospace;
+}
+.ambient-progress-label span:last-child {
+  color: var(--accent);
+}
+.ambient-track {
+  height: 12px;
+  padding: 2px;
+  border: 1px solid #20252d;
+  border-radius: 99px;
+  background: #090a0c;
+}
+.ambient-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.ambient-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  padding-top: 8px;
+}
+.ambient-stats span {
+  display: grid;
+  gap: 8px;
+  padding: 14px 10px;
+  border: 1px solid #151920;
+  border-radius: 12px;
+  background: #08090b;
+  color: #e2e8f0;
+  font:
+    500 1rem "DM Mono",
+    monospace;
+}
+.ambient-stats small {
+  color: #596273;
+  font-size: 0.62rem;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 58%, white);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Reference studio skin: near-black surfaces keep the accent and widget previews legible. */
+body[data-oled="true"] .app-shell {
+  --studio-bg: #050505;
+  --studio-surface: rgba(17, 18, 22, 0.78);
+  --studio-surface-soft: rgba(17, 18, 22, 0.48);
+  --studio-line: rgba(148, 163, 184, 0.16);
+  color: #e2e8f0;
+}
+body[data-oled="true"] .app-shell h1,
+body[data-oled="true"] .app-shell h2,
+body[data-oled="true"] .app-shell h3,
+body[data-oled="true"] .app-shell strong,
+body[data-oled="true"] .app-shell .progress-meta strong,
+body[data-oled="true"] .app-shell .tabs button.is-active {
+  color: #f8fafc;
+}
+body[data-oled="true"] .app-header,
+body[data-oled="true"] .tabs {
+  border-color: var(--studio-line);
+}
+body[data-oled="true"] .hero-panel,
+body[data-oled="true"] .panel,
+body[data-oled="true"] .stat-card,
+body[data-oled="true"] .milestone,
+body[data-oled="true"] .install-panel {
+  border-color: var(--studio-line);
+  background: var(--studio-surface);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+body[data-oled="true"] .hero-panel {
+  background:
+    radial-gradient(
+      circle at 88% 15%,
+      color-mix(in srgb, var(--accent) 18%, transparent),
+      transparent 13rem
+    ),
+    var(--studio-surface);
+}
+body[data-oled="true"] .settings-trigger,
+body[data-oled="true"] .settings-drawer,
+body[data-oled="true"] .theme-choice.is-selected {
+  color: #e2e8f0;
+  border-color: var(--studio-line);
+  background: #111216;
+}
+body[data-oled="true"] .settings-drawer {
+  background: rgba(8, 9, 12, 0.92);
+}
+body[data-oled="true"] .progress-track,
+body[data-oled="true"] .day-cell,
+body[data-oled="true"] .matrix-legend i {
+  background: rgba(148, 163, 184, 0.13);
+}
+body[data-oled="true"] .muted,
+body[data-oled="true"] .panel-note,
+body[data-oled="true"] .stat-card small,
+body[data-oled="true"] .milestone span {
+  color: #94a3b8;
+}
+body[data-oled="true"] .widget-preview {
+  border-color: rgba(148, 163, 184, 0.2);
+  background: linear-gradient(
+    145deg,
+    rgba(30, 32, 40, 0.94),
+    rgba(12, 13, 17, 0.9)
+  );
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+body[data-oled="true"] .widget-square {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent) 13%, #1e2028),
+    rgba(12, 13, 17, 0.9)
+  );
+}
+body[data-oled="true"] .widget-tall {
+  background: linear-gradient(
+    145deg,
+    rgba(18, 45, 43, 0.85),
+    rgba(12, 13, 17, 0.9)
+  );
+}
+
+.brand-line,
+.header-actions,
+.hero-actions,
+.hero-side,
+.kicker,
+.widget-row,
+.widget-guide {
+  display: flex;
+  align-items: center;
+}
+.brand-line {
+  gap: 9px;
+}
+.brand-line h1 {
+  font:
+    800 1.1rem/1 "DM Mono",
+    monospace;
+  letter-spacing: -0.04em;
+}
+.brand-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.header-actions {
+  gap: 9px;
+}
+.header-clock {
+  color: var(--muted-ink);
+  font:
+    500 0.68rem "DM Mono",
+    monospace;
+}
+body[data-oled="true"] .header-clock {
+  color: #64748b;
+}
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--glass);
+}
+body[data-oled="true"] .icon-button {
+  color: #94a3b8;
+  border-color: var(--studio-line);
+  background: #111216;
+}
+.hero-number-top {
+  margin: 13px 0 19px;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+}
+.hero-actions {
+  gap: 18px;
+  color: var(--muted-ink);
+  font:
+    500 0.7rem "DM Mono",
+    monospace;
+  text-transform: uppercase;
+}
+.hero-actions strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+body[data-oled="true"] .hero-actions strong {
+  color: #f8fafc;
+}
+.share-button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--muted-ink);
+  background: var(--glass);
+}
+.hero-side {
+  align-self: start;
+  gap: 8px;
+  color: var(--muted-ink);
+  font:
+    500 0.68rem "DM Mono",
+    monospace;
+  text-transform: uppercase;
+}
+.section-heading .kicker {
+  gap: 6px;
+}
+.phone-mockup {
+  width: min(100%, 330px);
+  margin: 24px auto;
+  padding: 18px 14px 15px;
+  border: 6px solid #1f2937;
+  border-radius: 38px;
+  background: #090a0d;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+}
+.phone-speaker {
+  width: 74px;
+  height: 7px;
+  margin: 0 auto 18px;
+  border-radius: 99px;
+  background: #252b35;
+}
+.phone-widget {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 17px;
+  background: rgba(20, 22, 28, 0.9);
+  color: #f8fafc;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.phone-widget strong {
+  font:
+    500 2rem "DM Mono",
+    monospace;
+}
+.widget-row {
+  justify-content: space-between;
+  color: #64748b;
+  font:
+    500 0.58rem "DM Mono",
+    monospace;
+  letter-spacing: 0.05em;
+}
+.widget-row:first-child span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+}
+.widget-foot {
+  color: #64748b !important;
+}
+.phone-widget .progress-row {
+  margin-top: 0;
+}
+.phone-widget .progress-meta {
+  display: none;
+}
+.phone-widget .progress-track {
+  height: 7px;
+  background: #08090b;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+.phone-home {
+  width: 58px;
+  height: 4px;
+  margin: 20px auto 0;
+  border-radius: 99px;
+  background: #374151;
+}
+.widget-guide {
+  max-width: 620px;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 15px 17px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  color: var(--muted-ink);
+  font-size: 0.78rem;
+}
+body[data-oled="true"] .widget-guide {
+  border-color: var(--studio-line);
+  background: var(--studio-surface-soft);
 }
 .ambient-screen strong {
   color: var(--accent);

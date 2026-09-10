@@ -1,5 +1,6 @@
 import { ProgressBar } from "../common/ProgressBar";
 import type { AccentTheme, TimeMetrics } from "../../types";
+import { Smartphone, Sparkles } from "lucide-react";
 
 interface WidgetsTabProps {
   metrics: TimeMetrics;
@@ -17,26 +18,46 @@ export function WidgetsTab({ metrics, accent }: WidgetsTabProps) {
           launcher widgets.
         </p>
       </div>
-      <div className="widget-grid">
-        <section className="widget-preview widget-wide">
-          <span className="widget-label">YEAR / {metrics.yearNumber}</span>
-          <strong>{metrics.year.elapsedPct.toFixed(1)}%</strong>
+      <div className="phone-mockup">
+        <div className="phone-speaker" />
+        <section className="phone-widget widget-smart">
+          <div className="widget-row">
+            <span>
+              <Sparkles size={12} /> SMART WIDGET
+            </span>
+            <span>{metrics.yearNumber}</span>
+          </div>
+          <strong>{metrics.year.elapsedPct.toFixed(2)}%</strong>
+          <ProgressBar
+            label="Year elapsed"
+            value={metrics.year.elapsedPct}
+            color={accent.accent}
+          />
+          <div className="widget-row widget-foot">
+            <span>{metrics.year.elapsedPct.toFixed(1)}% passed</span>
+            <span>{metrics.year.remainingUnits}d left</span>
+          </div>
+        </section>
+        <section className="phone-widget widget-compact">
+          <div className="widget-row">
+            <span>2 × 2 MINIMAL</span>
+            <span style={{ color: accent.accent }}>{metrics.yearNumber}</span>
+          </div>
+          <strong>{metrics.year.elapsedPct.toFixed(2)}%</strong>
           <ProgressBar
             label="Year elapsed"
             value={metrics.year.elapsedPct}
             color={accent.accent}
           />
         </section>
-        <section className="widget-preview widget-square">
-          <span className="widget-label">DAY {metrics.dayOfYear}</span>
-          <strong>{metrics.day.remainingPct.toFixed(0)}%</strong>
-          <span className="muted">still open</span>
-        </section>
-        <section className="widget-preview widget-tall">
-          <span className="widget-label">NEXT</span>
-          <strong>{metrics.month.remainingUnits}</strong>
-          <span className="muted">days in month</span>
-        </section>
+        <div className="phone-home" />
+      </div>
+      <div className="widget-guide">
+        <Smartphone size={17} color={accent.accent} />
+        <span>
+          Install the PWA to keep these layouts close. Native launcher widgets
+          require a separate Android wrapper.
+        </span>
       </div>
     </div>
   );

@@ -1,11 +1,18 @@
 import type { TabId } from "../../types";
+import {
+  BarChart3,
+  CalendarDays,
+  Clock3,
+  Download,
+  Smartphone,
+} from "lucide-react";
 
-const tabs: Array<{ id: TabId; label: string }> = [
-  { id: "overview", label: "Overview" },
-  { id: "matrix", label: "365 days" },
-  { id: "widgets", label: "Widgets" },
-  { id: "milestones", label: "Milestones" },
-  { id: "install", label: "Install" },
+const tabs: Array<{ id: TabId; label: string; icon: typeof Clock3 }> = [
+  { id: "overview", label: "Overview", icon: Clock3 },
+  { id: "matrix", label: "365 Grid", icon: CalendarDays },
+  { id: "widgets", label: "Widgets", icon: Smartphone },
+  { id: "milestones", label: "Goals", icon: BarChart3 },
+  { id: "install", label: "Install", icon: Download },
 ];
 
 interface NavTabsProps {
@@ -24,6 +31,7 @@ export function NavTabs({ activeTab, onChange }: NavTabsProps) {
           onClick={() => onChange(tab.id)}
           aria-current={activeTab === tab.id ? "page" : undefined}
         >
+          <tab.icon size={14} />
           {tab.label}
         </button>
       ))}

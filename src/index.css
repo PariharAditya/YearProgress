@@ -11,6 +11,12 @@
   --accent-strong: #c9481d;
   --accent-soft: #ffe4d6;
   --accent-contrast: #24130d;
+  --ink: #272522;
+  --muted-ink: #887e72;
+  --line: rgba(105, 88, 70, 0.16);
+  --glass: rgba(255, 252, 247, 0.46);
+  --glass-strong: rgba(255, 252, 247, 0.68);
+  --shadow-soft: 0 18px 45px rgba(86, 65, 43, 0.1);
 }
 * {
   box-sizing: border-box;
@@ -18,10 +24,22 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: #f5f0e8;
+  background:
+    radial-gradient(
+      circle at 8% 4%,
+      color-mix(in srgb, var(--accent) 14%, transparent),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 92% 38%,
+      rgba(130, 176, 181, 0.16),
+      transparent 30rem
+    ),
+    #f5f0e8;
 }
 body[data-oled="true"] {
   background: #050505;
+  color: #f8fafc;
 }
 button,
 input {

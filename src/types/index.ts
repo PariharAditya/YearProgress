@@ -13,9 +13,11 @@ export interface AccentTheme {
 
 export interface AppSettings {
     accentTheme: AccentThemeId
-    precision: 0 | 1 | 2
+    precision: 0 | 1 | 2 | 3 | 4 | 5 | 6
     oledMode: boolean
     showQuarter: boolean
+    showMilliseconds: boolean
+    themeMode: 'dark' | 'light' | 'system'
 }
 
 export interface Milestone {
@@ -44,5 +46,8 @@ export interface TimeMetrics {
     yearNumber: number
     dayOfYear: number
     daysInYear: number
+    currentQuarter: number
+    hoursPassed: number
+    hoursRemaining: number
     days: Array<{ date: string; dayOfYear: number; isToday: boolean; isPast: boolean }>
 }

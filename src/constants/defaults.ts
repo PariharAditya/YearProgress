@@ -2,9 +2,11 @@ import type { AppSettings, Milestone } from '../types'
 
 export const DEFAULT_SETTINGS: AppSettings = {
     accentTheme: 'signal',
-    precision: 1,
-    oledMode: false,
+    precision: 2,
+    oledMode: true,
     showQuarter: true,
+    showMilliseconds: false,
+    themeMode: 'dark',
 }
 
 export const DEFAULT_MILESTONES: Milestone[] = [
